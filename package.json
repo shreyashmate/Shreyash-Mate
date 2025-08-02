@@ -1,0 +1,19 @@
+{
+  "name": "iportfolio",
+  "version": "1.0.0",
+  "description": "Portfolio with Contact Form",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "nodemailer": "^6.4.16",
+    "dotenv": "^8.2.0",
+    "body-parser": "^1.19.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
