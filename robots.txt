@@ -1,4 +1,4 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://shreyashmate.github.io/sitemap.xml
+Sitemap: https://ishreyash.netlify.app//sitemap.xml
