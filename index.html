@@ -6,8 +6,47 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>iShreyash Portfolio-index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="Portfolio of Shreyash Mate - Web Developer & Designer specializing in HTML, CSS, JavaScript, PHP, and more." name="description">
+  <meta content="Shreyash Mate, Web Developer, Portfolio, Designer, Akola" name="keywords">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shreyashmate.github.io/">
+  <meta property="og:title" content="Shreyash Mate - Web Developer Portfolio">
+  <meta property="og:description" content="Portfolio of Shreyash Mate - Web Developer & Designer specializing in HTML, CSS, JavaScript, PHP, and more.">
+  <meta property="og:image" content="assets/img/profile1.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://shreyashmate.github.io/">
+  <meta property="twitter:title" content="Shreyash Mate - Web Developer Portfolio">
+  <meta property="twitter:description" content="Portfolio of Shreyash Mate - Web Developer & Designer specializing in HTML, CSS, JavaScript, PHP, and more.">
+  <meta property="twitter:image" content="assets/img/profile1.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shreyash Mate",
+    "url": "https://shreyashmate.github.io/",
+    "jobTitle": "Web Developer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Akola",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "email": "shreyashmate242@gmail.com",
+    "telephone": "+919921628303",
+    "sameAs": [
+      "https://www.linkedin.com/in/shreyash-mate-77a17b2b8",
+      "https://www.instagram.com/___shreyes__._/",
+      "https://x.com/Shreyash1227768"
+    ],
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "PHP", "C Programming", "Java", "Web Development", "UI/UX Design"]
+  }
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/profile1.jpg" rel="icon"> 
@@ -24,8 +63,21 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Three.js for 3D -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#149ddd">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#149ddd">
+  <meta name="apple-mobile-web-app-title" content="Shreyash">
 
   <!-- =======================================================
   * Template Name: iPortfolio
@@ -45,6 +97,12 @@
   <header id="header">
     <div class="d-flex flex-column">
 
+      <div class="theme-toggle">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+      </div>
+
       <div class="profile">
         <img src="assets/img/profile1.jpg" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Shreyash Mate</a></h1>
@@ -61,8 +119,9 @@
         <ul>
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+          <li><a href="#project-video" class="nav-link scrollto"><i class="bx bx-video"></i> <span>Project</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Work</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -71,6 +130,7 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div id="three-canvas"></div>
     <div class="hero-container" data-aos="fade-in">
       <h1>Shreyash Mate</h1>
       <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
@@ -82,43 +142,124 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
-
         <div class="section-title">
-          <h2>About</h2>
-          <p>I am a skilled web developer with a passion for creating dynamic and user-friendly web applications. Balancing my professional life with active hobbies like swimming and cricket, I also enjoy listening to music in my free time. I strive for continuous learning and excellence in all I do.
-
-            .</p>
+          <h2>About Me</h2>
+          <p>I am a passionate web developer skilled in creating dynamic, user-friendly web applications, always striving for excellence and continuous learning.</p>
         </div>
-
-        <div class="row">
+        
+        <!-- Main Info -->
+        <div class="row align-items-center mb-5">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile1.jpg" class="img-fluid" alt="">
+            <img src="assets/img/profile1.jpg" class="img-fluid rounded shadow-lg" alt="Shreyash Mate">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Designer &amp; Web Developer.</h3>
-            <p class="fst-italic">
-              I am a passionate web developer skilled in creating dynamic, user-friendly web applications, always striving for excellence and continuous learning.</p>
+            <h3>Web Developer & Designer</h3>
+            <p class="lead mb-4">Transforming ideas into powerful digital experiences.</p>
             <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>18 july 2004</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 99216 28303</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Akola, Maharastra</span></li>
-                </ul>
+              <div class="col-md-6">
+                <div class="info-item">
+                  <i class="bi bi-person"></i>
+                  <span>Shreyash Mate</span>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-geo-alt"></i>
+                  <span>Akola, Maharashtra</span>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-envelope"></i>
+                  <span>shreyashmate242@gmail.com</span>
+                </div>
               </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Graduates</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>shreyashmate242@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+              <div class="col-md-6">
+                <div class="info-item">
+                  <i class="bi bi-phone"></i>
+                  <span>+91 99216 28303</span>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-mortarboard"></i>
+                  <span>BCA Graduate</span>
+                </div>
+                <div class="info-item">
+                  <i class="bi bi-check-circle"></i>
+                  <span>Freelance Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="summary-section" data-aos="fade-up">
+          <div class="summary-card">
+            <h3><i class="bi bi-stars"></i> Summary</h3>
+            <p>Passionate <strong>Web Developer</strong> with expertise in building modern, responsive, and user-friendly web applications. Skilled in transforming ideas into elegant digital solutions. Known for clean code, creative problem-solving, and delivering projects on time. Eager to contribute to innovative projects and continue learning new technologies.</p>
+          </div>
+        </div>
+
+        <!-- Experience & Education Grid -->
+        <div class="row g-4">
+          <!-- Education -->
+          <div class="col-md-6" data-aos="fade-up">
+            <div class="modern-card">
+              <div class="card-icon">
+                <i class="bi bi-mortarboard"></i>
+              </div>
+              <h4>Education</h4>
+              <div class="card-content">
+                <h5>Bachelor of Computer Application</h5>
+                <p class="meta">2022 - 2024</p>
+                <p>Smt. Maherbanu Science and Commerce College, Akola</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="modern-card">
+              <div class="card-icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <h4>Experience</h4>
+              <div class="card-content">
+                <h5>Web Development Intern</h5>
+                <p class="meta">April 2024 - June 2024</p>
+                <p>iBase Technology</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="modern-card">
+              <div class="card-icon">
+                <i class="bi bi-award"></i>
+              </div>
+              <h4>Certifications</h4>
+              <div class="card-content">
+                <ul class="modern-list">
+                  <li>Android Development</li>
+                  <li>Web Development</li>
+                  <li>Data Analyst</li>
                 </ul>
               </div>
             </div>
-            <p>
-              I am a dedicated web developer specializing in crafting innovative, user-centric web applications. My unique blend of creativity and technical expertise allows me to deliver exceptional digital experiences.
-            </p>
+          </div>
+
+          <!-- Projects -->
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="modern-card">
+              <div class="card-icon">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <h4>Key Projects</h4>
+              <div class="card-content">
+                <ul class="modern-list">
+                  <li>Amazon Website Clone</li>
+                  <li>Hotel Website</li>
+                  <li>Restaurant Website</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -127,257 +268,294 @@
 
    
 
-    <!-- ======= Skills Section ======= -->
+    <!-- ======= What I Can Build Section ======= -->
     <section id="skills" class="skills section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Skills</h2>
-          <p>I am proficient in HTML, CSS, Java, PHP, C programming, and JavaScript. These skills enable me to create dynamic, responsive, and efficient web applications, showcasing my versatility and technical expertise in web development. My comprehensive knowledge ensures I can handle various aspects of modern web development projects.</p>
+          <h2>What I Can Build</h2>
+          <p>Transforming ideas into powerful digital solutions. Here's what I create:</p>
         </div>
 
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="service-box">
+              <i class="bi bi-laptop"></i>
+              <h4>Web Applications</h4>
+              <p>E-commerce platforms, social networks, content management systems, booking systems, and custom web apps.</p>
             </div>
-
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">PHP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-box">
+              <i class="bi bi-phone"></i>
+              <h4>Mobile Apps</h4>
+              <p>Android applications, responsive mobile websites, and cross-platform solutions.</p>
             </div>
-
-            <div class="progress">
-              <span class="skill">C-programming <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Java <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
           </div>
 
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-box">
+              <i class="bi bi-gear"></i>
+              <h4>Automation</h4>
+              <p>Workflow automation, form processing, data scraping, and automated testing solutions.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-box">
+              <i class="bi bi-palette"></i>
+              <h4>UI/UX Design</h4>
+              <p>Modern website designs, user interfaces, prototypes, and visual branding solutions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tech-stack-section mt-5">
+          <h4 class="text-center mb-4">Tech Stack</h4>
+          <div class="tech-grid">
+            <!-- Frontend -->
+            <div class="tech-category">
+              <h5><i class="bi bi-palette"></i> Frontend</h5>
+              <div class="tech-items">
+                <span class="tech-pill"><i class="bi bi-filetype-html"></i> HTML</span>
+                <span class="tech-pill"><i class="bi bi-filetype-css"></i> CSS</span>
+                <span class="tech-pill"><i class="bi bi-filetype-js"></i> JavaScript</span>
+                <span class="tech-pill"><i class="bi bi-bootstrap"></i> Bootstrap</span>
+              </div>
+            </div>
+            <!-- Backend -->
+            <div class="tech-category">
+              <h5><i class="bi bi-code-slash"></i> Backend</h5>
+              <div class="tech-items">
+                <span class="tech-pill"><i class="bi bi-filetype-php"></i> Node.js</span>
+                <span class="tech-pill"><i class="bi bi-database"></i> MySQL</span>
+                <span class="tech-pill"><i class="bi bi-cup"></i> Python</span>
+                <span class="tech-pill"><i class="bi bi-terminal"></i> MongoDB</span>
+              </div>
+            </div>
+            <!-- Tools -->
+            <div class="tech-category">
+              <h5><i class="bi bi-tools"></i> Tools & Others</h5>
+              <div class="tech-items">
+                <span class="tech-pill"><i class="bi bi-github"></i> Git</span>
+                <span class="tech-pill"><i class="bi bi-file-earmark-code"></i> VS Code</span>
+                <span class="tech-pill"><i class="bi bi-filetype-json"></i> Power BI</span>
+                <span class="tech-pill"><i class="bi bi-filetype-csv"></i> PyCharm</span>
+                <span class="tech-pill"><i class="bi bi-window"></i> REST API</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
     </section><!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
       <div class="container">
 
         <div class="section-title">
-          <h2>Resume</h2>
-          <p>My resume highlights a successful career as a web developer, showcasing my expertise in creating dynamic and user-friendly web applications. It details my academic journey, where I built a strong foundation in web development, and my active involvement in extracurricular activities such as swimming and cricket. These experiences reflect my ability to balance technical proficiency with a well-rounded, disciplined approach to both personal and professional growth. Additionally, my resume underscores my passion for continuous learning and my commitment to achieving excellence in the field of web development.</p>
+          <h2>Services</h2>
+          <p>What I can do for you</p>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Shreyash Mate</h4>
-              <p><em>my  skilled web developer with a successful career in the field. In addition to my professional achievements, I am enjoy swimming and playing cricket, staying active and engaged in my free time. And also have a passion for listening to music, which helps me relax and unwind. Balancing a thriving career with active hobbies and a love for music, lead a well-rounded and fulfilling lifestyle.</em></p>
-              <ul>
-                <li>Akola, Maharastra-444402</li>
-                <li>+91 99216 28303</li>
-                <li>shreyashmate242@gmail.com</li>
-              </ul>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <h4>Web Development</h4>
+              <p>Custom websites and web applications built with modern technologies. Fast, responsive, and user-friendly.</p>
             </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Bachelor of Computer Application (BCA) </h4>
-              <h5>2022 - 2024</h5>
-              <p><em>Smt. Maherbanu Science and Commerce College, Akola</em></p>
-              <p>
-                During my college journey, I immersed myself in the world of web development, laying a strong foundation for my successful career. Alongside my academic pursuits, I actively participated in extracurricular activities, honing my skills in swimming and cricket. These experiences not only enriched my college life but also helped me develop a balanced and disciplined approach to my personal and professional growth. My time in college was marked by learning, growth, and the formation of lasting friendships, setting the stage for my future achievements.</p>
-            </div>
-           
           </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Skills</h3>
-            <div class="resume-item">
-              <h4>Internships</h4>
-              <h5>Web Development Intern, Work withs iBase Technology</h5>
-              <p><em>April 2024 - june 2024 </em></p>
-              <ul>
-                <li>Lead in the design, development, and implementation of the web development and production communication materials</li>
-                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                <li>Prepared projects for differents companys</li>
-                
-              </ul>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-phone"></i>
+              </div>
+              <h4>Mobile Responsive</h4>
+              <p>Websites that look great on all devices - desktop, tablet, and mobile phones.</p>
             </div>
-            <div class="resume-item">
-              <h4>Certifications </h4>
-              <ul>
-                <li>Android Development (Certificate)</li>
-                <li>Webside Development (Certificate)</li>
-                <li>Microsoft Excel (Certificate)</li> 
-              </ul>
-              <p>The good knowledge about Android development. we are creating android application for the projects. professional Web development and lots of projects on web development created by me</p>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <h4>UI/UX Design</h4>
+              <p>Beautiful and intuitive user interfaces that enhance user experience.</p>
             </div>
-            <div class="resume-item">
-              <h4>Projects</h4>
-              <ul>
-                <li>Amazon Website Created</li>
-                <li>Google Clone Created</li>
-                <li>Restrurant Website Created</li>
-                
-              </ul>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-gear"></i>
+              </div>
+              <h4>Automation</h4>
+              <p>Automate repetitive tasks and streamline your business processes.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-database"></i>
+              </div>
+              <h4>Database Design</h4>
+              <p> Efficient database architecture and management for your applications.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-chat-dots"></i>
+              </div>
+              <h4>Consultation</h4>
+              <p>Technical advice and guidance for your web projects.</p>
             </div>
           </div>
         </div>
 
       </div>
-    </section><!-- End Resume Section -->
+    </section><!-- End Services Section -->
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Project Video Section ======= -->
+    <section id="project-video" class="project-video section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Project Video</h2>
+          <p>Watch a quick walkthrough of my project.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-6">
+            <div class="project-video-card">
+              <video class="w-100 rounded shadow" autoplay muted controls playsinline preload="metadata">
+                <source src="Project_Imgs/Amazon%20Clone%20-%20Modern%20Navbar%20-%20Google%20Chrome%202026-02-20%2003-34-21.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <h4 class="mt-3 mb-0">Amazon Clone Website</h4>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="project-video-card">
+              <video class="w-100 rounded shadow" autoplay muted controls playsinline preload="metadata">
+                <source src="Project_Imgs/FuZion%20Salon%20-%20Google%20Chrome%202026-02-20%2003-26-06.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <h4 class="mt-3 mb-0">FuZion Salon Website</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Project Video Section -->
+
+    <!-- ======= Work Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Welcome to my portfolio! Here, you'll find a showcase of my diverse web development projects, each meticulously crafted with expertise in HTML, CSS, JavaScript, PHP From dynamic e-commerce platforms to interactive web applications, explore my portfolio to witness my passion for innovation and excellence in web development.</p>
+          <h2>Work</h2>
+          <p>Some of my recent projects with screenshots, titles, and short descriptions.</p>
         </div>
 
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter="file:///C:/project1/index.html">Web</li>
-            </ul>
-          </div>
-        </div>
+        <div class="row portfolio-container" data-aos="fade-up">
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-6 col-md-6 portfolio-item filter-web" data-project-id="1">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <button type="button" class="portfolio-preview-arrow left" aria-label="Previous preview image">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <img src="Project_Imgs/amazon1.png" class="img-fluid" alt="Amazon Clone Project">
+              <button type="button" class="portfolio-preview-arrow right" aria-label="Next preview image">
+                <i class="bi bi-chevron-right"></i>
+              </button>
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="Project_Imgs/amazon1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Amazon Clone"><i class="bx bx-plus"></i></a>
+                <a href="#" class="portfolio-details-link" data-project-id="1" title="Project Details"><i class="bx bx-link"></i></a>
               </div>
+            </div>
+            <div class="portfolio-card-content">
+              <h4>Amazon Clone Website</h4>
+              <p>Responsive e-commerce UI clone with homepage sections, product cards, and navigation inspired by Amazon.</p>
+              <a href="https://ishreyash-amazon-clone.netlify.app/" class="btn btn-primary mt-3" target="_blank" rel="noopener">Live Project</a>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-6 col-md-6 portfolio-item filter-web" data-project-id="2">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <button type="button" class="portfolio-preview-arrow left" aria-label="Previous preview image">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <img src="Project_Imgs/hotel1.png" class="img-fluid" alt="Hotel Booking Website Project">
+              <button type="button" class="portfolio-preview-arrow right" aria-label="Next preview image">
+                <i class="bi bi-chevron-right"></i>
+              </button>
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="Project_Imgs/hotel1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Hotel Booking Website"><i class="bx bx-plus"></i></a>
+                <a href="#" class="portfolio-details-link" data-project-id="2" title="Project Details"><i class="bx bx-link"></i></a>
               </div>
+            </div>
+            <div class="portfolio-card-content">
+              <h4>Hotel Booking Website</h4>
+              <p>Hotel showcase and booking-style interface with room highlights, clean layout, and mobile-friendly design.</p>
+              <a href="https://ishreyash-hotel.netlify.app/" class="btn btn-primary mt-3" target="_blank" rel="noopener">Live Project</a>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-6 col-md-6 portfolio-item filter-web" data-project-id="3">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <button type="button" class="portfolio-preview-arrow left" aria-label="Previous preview image">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <img src="Project_Imgs/resto1.png" class="img-fluid" alt="Restaurant Website Project">
+              <button type="button" class="portfolio-preview-arrow right" aria-label="Next preview image">
+                <i class="bi bi-chevron-right"></i>
+              </button>
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="Project_Imgs/resto1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Restaurant Website"><i class="bx bx-plus"></i></a>
+                <a href="#" class="portfolio-details-link" data-project-id="3" title="Project Details"><i class="bx bx-link"></i></a>
               </div>
+            </div>
+            <div class="portfolio-card-content">
+              <h4>Restaurant Website</h4>
+              <p>Modern food business website featuring menu highlights, hero banner, and strong visual branding.</p>
+              <a href="https://ishreyash-restaurants.netlify.app/" class="btn btn-primary mt-3" target="_blank" rel="noopener">Live Project</a>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-6 col-md-6 portfolio-item filter-web" data-project-id="4">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <button type="button" class="portfolio-preview-arrow left" aria-label="Previous preview image">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <img src="Project_Imgs/salon1.png" class="img-fluid" alt="Salon Website Project">
+              <button type="button" class="portfolio-preview-arrow right" aria-label="Next preview image">
+                <i class="bi bi-chevron-right"></i>
+              </button>
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="Project_Imgs/salon1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Salon Website"><i class="bx bx-plus"></i></a>
+                <a href="#" class="portfolio-details-link" data-project-id="4" title="Project Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
+            <div class="portfolio-card-content">
+              <h4>FuZion Salon Website</h4>
+              <p>Salon branding website focused on service presentation, styling visuals, and appointment-oriented layout.</p>
+              <a href="#" class="btn btn-primary mt-3">Live Project</a>
             </div>
           </div>
 
         </div>
+
       </div>
-    </section><!-- End Portfolio Section -->
-
+    </section><!-- End Work Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -410,8 +588,7 @@
                 <p>+91 99216 28303</p>
               </div>
 
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2588.493941133476!2d77.02847364673237!3d20.716349123871233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd72e153db89679%3A0x767c54ba20d2a0a!2sMate%20Complex%2Cmothi%20Umri%2CAkola!5e0!3m2!1sen!2sin!4v1744613312070!5m2!1sen!2sin" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14227.502178668372!2d77.02515269838487!3d20.718188293669844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd72f1af09b861d%3A0xcf4221ba5abe441d!2sMate%20Construction!5e1!3m2!1sen!2sin!4v1771370783710!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
@@ -469,6 +646,56 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- AI Chatbot -->
+  <div id="chatbot-toggle" class="chatbot-toggle">
+    <i class="bi bi-chat-dots-fill"></i>
+  </div>
+  <div id="chatbot-container" class="chatbot-container">
+    <div class="chatbot-header">
+      <h5><i class="bi bi-robot"></i> AI Assistant</h5>
+      <button id="chatbot-close"><i class="bi bi-x"></i></button>
+    </div>
+    <div id="chatbot-messages" class="chatbot-messages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbot-input" placeholder="Ask me anything...">
+      <button id="chatbot-send"><i class="bi bi-send"></i></button>
+    </div>
+  </div>
+
+  <!-- Project Detail Modal -->
+  <div id="projectModal" class="modal project-modal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="projectModalTitle">Project Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="project-gallery mb-3">
+            <div class="project-image-frame mb-3">
+              <button type="button" id="projectPrevBtn" class="project-nav-arrow left" aria-label="Previous image">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <img id="projectModalImage" src="" alt="Project Image" class="img-fluid">
+              <button type="button" id="projectNextBtn" class="project-nav-arrow right" aria-label="Next image">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+            <div id="projectModalThumbs" class="project-modal-thumbs"></div>
+          </div>
+          <p id="projectModalDescription">Project description goes here.</p>
+          <div class="project-tech">
+            <h6>Technologies Used:</h6>
+            <div id="projectModalTech" class="tech-tags"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a id="projectModalLink" href="#" target="_blank" class="btn btn-primary">View Live Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -483,51 +710,10 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script>
-  
-  document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contactForm');
-  const statusDiv = document.getElementById('status');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent default form submit behavior
-
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      subject: form.subject.value,
-      message: form.message.value
-    };
-
-    try {
-      const res = await fetch('/submit-contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      const result = await res.json();
-
-      if (res.ok) {
-        statusDiv.textContent = result.message;
-        statusDiv.style.color = 'green';
-        form.reset();
-      } else {
-        statusDiv.textContent = result.message || 'Something went wrong.';
-        statusDiv.style.color = 'red';
-      }
-    } catch (err) {
-      console.error('❌ Error submitting form:', err);
-      statusDiv.textContent = 'Server error. Please try again.';
-      statusDiv.style.color = 'red';
-    }
-  });
-});
-
-
-  </script>
+  <script src="button.js"></script>
 
 
 </body>
 
 </html>
+

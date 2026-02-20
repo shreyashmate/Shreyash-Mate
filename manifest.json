@@ -1,0 +1,21 @@
+{
+  "name": "Shreyash Mate Portfolio",
+  "short_name": "Shreyash",
+  "description": "Portfolio of Shreyash Mate - Web Developer & Designer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#149ddd",
+  "icons": [
+    {
+      "src": "assets/img/profile1.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/img/profile1.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
